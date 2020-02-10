@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:login_firebase/screens/wrapper.dart';
-import 'package:login_firebase/services/auth.dart';
+import 'package:JomelI6/screens/wrapper.dart';
+import 'package:JomelI6/services/auth.dart';
 import 'package:provider/provider.dart';
 import 'models/user.dart';
 

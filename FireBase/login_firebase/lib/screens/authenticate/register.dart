@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:login_firebase/services/auth.dart';
-import 'package:login_firebase/shared/decorations.dart';
-import 'package:login_firebase/shared/loading.dart';
+import 'package:JomelI6/services/auth.dart';
+import 'package:JomelI6/shared/decorations.dart';
+import 'package:JomelI6/shared/loading.dart';
 
 class Register extends StatefulWidget {
 

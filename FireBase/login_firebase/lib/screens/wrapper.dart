@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:login_firebase/models/user.dart';
-import 'package:login_firebase/screens/authenticate/authenticate.dart';
+import 'package:JomelI6/models/user.dart';
+import 'package:JomelI6/screens/authenticate/authenticate.dart';
 import 'package:provider/provider.dart';
-import 'package:login_firebase/screens/home/home.dart';
+import 'package:JomelI6/screens/home/home.dart';
 
 class Wrapper extends StatelessWidget {
   @override

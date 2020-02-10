@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:login_firebase/screens/authenticate/sign_in.dart';
-import 'package:login_firebase/screens/authenticate/register.dart';
+import 'package:JomelI6/screens/authenticate/sign_in.dart';
+import 'package:JomelI6/screens/authenticate/register.dart';
 
 class Authenticate extends StatefulWidget {
   @override
