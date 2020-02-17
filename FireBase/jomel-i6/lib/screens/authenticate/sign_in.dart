@@ -40,6 +40,7 @@ class _SignInState extends State<SignIn> {
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
+        child: SingleChildScrollView(
         child: Form(
           key: _formKey,
           child: Column(
@@ -91,6 +92,7 @@ class _SignInState extends State<SignIn> {
           ),
         ),
       ),
+      )
     );
   }
 }

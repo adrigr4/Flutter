@@ -20,6 +20,9 @@ class _RegisterState extends State<Register> {
 
   String email = '';
   String password = '';
+  String name = '';
+  String surname = '';
+  String nickname = '';
   String error = '';
 
 
@@ -45,12 +48,37 @@ class _RegisterState extends State<Register> {
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
           child: Form(
             key: _formKey,
+            child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 SizedBox(height: 20.0),
                 TextFormField(
+                  decoration: textInputDecoration.copyWith(hintText: 'Nom'),
+                  validator: (val) => val.isEmpty ? 'Introdueix un text vàlid' : null,
+                  onChanged: (val) {
+                    setState(() => name = val);
+                  }
+                ),
+                SizedBox(height: 20.0),
+                TextFormField(
+                  decoration: textInputDecoration.copyWith(hintText: 'Cognom'),
+                  validator: (val) => val.isEmpty ? 'Introdueix un text vàlid' : null,
+                  onChanged: (val) {
+                    setState(() => surname = val);
+                  }
+                ),
+                SizedBox(height: 20.0),
+                TextFormField(
+                  decoration: textInputDecoration.copyWith(hintText: 'Nick'),
+                  validator: (val) => val.isEmpty ? 'Introdueix un text vàlid' : null,
+                  onChanged: (val) {
+                    setState(() => nickname = val);
+                  }
+                ),
+                SizedBox(height: 20.0),
+                TextFormField(
                   decoration: textInputDecoration.copyWith(hintText: 'Email'),
-                  validator: (val) => val.isEmpty ? 'Introdueix un email vàlid' : null,
+                  validator: (val) => val.isEmpty ? 'Introdueix un correu vàlid' : null,
                   onChanged: (val) {
                     setState(() => email = val);
                   }
@@ -77,7 +105,7 @@ class _RegisterState extends State<Register> {
                   onPressed: () async {
                     if(_formKey.currentState.validate()){
                       setState(() => loading = true);
-                      dynamic result = await _auth.registerWithEmailAndPassword(email, password);
+                      dynamic result = await _auth.registerWithEmailAndPasswordAndInfo(email, password, name, surname, nickname);
                       if(result == null){
                         setState(() => error = 'please supply a valid email');
                         loading = false;
@@ -94,6 +122,7 @@ class _RegisterState extends State<Register> {
             ),
           ),
       ),
+      )
     );
   }
 }
