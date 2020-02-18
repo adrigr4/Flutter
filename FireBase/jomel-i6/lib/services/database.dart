@@ -1,3 +1,4 @@
+import 'package:JomelI6/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DatabaseService {
@@ -16,9 +17,21 @@ class DatabaseService {
     });
   }
 
+  List<User> _userListFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.documents.map((doc){
+      return User(
+        email: doc.data['email'] ?? '',
+        name: doc.data['name'] ?? '',
+        surname: doc.data['surname'] ?? '',
+        nickname: doc.data['nickname'] ?? '',
+        );
+    }).toList();
+  }
+
   // get users stream 
-    Stream<QuerySnapshot> get users {
-      return userCollection.snapshots();
+    Stream<List<User>> get users {
+      return userCollection.snapshots()
+        .map(_userListFromSnapshot);
     } 
 
 }

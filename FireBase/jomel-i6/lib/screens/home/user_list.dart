@@ -1,3 +1,5 @@
+import 'package:JomelI6/models/user.dart';
+import 'package:JomelI6/screens/home/user_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -11,14 +13,12 @@ class _UserListState extends State<UserList> {
   @override
   Widget build(BuildContext context) {
 
-    final users = Provider.of<QuerySnapshot>(context);
+    final users = Provider.of<List<User>>(context);
     
-    for (var doc in users.documents) {
-      print(doc.data);
-    }
-
-    return Container(
-
-    );
+    return ListView.builder(
+      itemCount: users.length,
+      itemBuilder: (context, index) {
+        return UserTile(user: users[index]);
+      });
   }
 }

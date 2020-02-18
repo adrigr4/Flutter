@@ -24,11 +24,6 @@ class _AuthenticateState extends State<Authenticate> {
     if(startPage){
       return Start(toggleStart: toggleStart);
     }else{
-    if (showSignIn) {
-      return SignIn(toggleView: toggleView);
-    } else {
-      return Register(toggleView: toggleView);
-    }
     }
   }
 }
