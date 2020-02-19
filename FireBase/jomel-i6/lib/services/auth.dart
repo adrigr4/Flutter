@@ -1,3 +1,4 @@
+import 'package:JomelI6/models/userAuth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:JomelI6/models/user.dart';
 import 'package:JomelI6/services/database.dart';
@@ -6,11 +7,11 @@ class AuthService {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  User _userFromFirebaseUser(FirebaseUser user){
-    return user != null ? User(uid: user.uid) : null;
+  UserAuth _userFromFirebaseUser(FirebaseUser user){
+    return user != null ? UserAuth(uid: user.uid) : null;
   }
 
-  Stream<User> get user {
+  Stream<UserAuth> get user {
     return _auth.onAuthStateChanged
       .map(_userFromFirebaseUser);
   }
@@ -20,6 +21,16 @@ class AuthService {
     try{
       AuthResult result = await _auth.signInAnonymously();
       FirebaseUser user = result.user;
+      return _userFromFirebaseUser(user);
+    } catch(e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
+   Future getCurrentUser() async {
+    try{
+      FirebaseUser user = await _auth.currentUser();
       return _userFromFirebaseUser(user);
     } catch(e) {
       print(e.toString());

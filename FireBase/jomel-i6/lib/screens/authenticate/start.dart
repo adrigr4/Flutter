@@ -1,18 +1,24 @@
 import 'package:JomelI6/screens/authenticate/register.dart';
 import 'package:JomelI6/screens/authenticate/sign_in.dart';
+import 'package:JomelI6/screens/home/home.dart';
+import 'package:JomelI6/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class Start extends StatefulWidget {
 
   static String tag = 'start';
-  final Function toggleStart;
-  Start({this.toggleStart});
+  
 
   @override
   _StartState createState() => _StartState();
 }
 
 class _StartState extends State<Start> {
+  
+  final AuthService _auth = AuthService();
+  bool loading = false;
+  String error = '';
+
   @override
   Widget build(BuildContext context) {
     final logo = Hero(
@@ -21,6 +27,29 @@ class _StartState extends State<Start> {
         backgroundColor: Colors.transparent,
         radius: 140.0,
         child: Image.asset('assets/launcher/LOGO1.png'),
+      ),
+    );
+
+    final loginAnonButton = Padding(
+      padding: EdgeInsets.symmetric(vertical: 15.0),
+      child: RaisedButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(24),
+        ),
+        onPressed: () async {
+          setState(() => loading = true);
+          dynamic result =
+              await _auth.signInAnon();
+          if (result == null) {
+            setState(() => error = 'Could not sign in');
+            loading = false;
+          } else {
+            Navigator.of(context).pushNamed(Home.tag);
+          }
+        },
+        padding: EdgeInsets.all(12),
+        color: Colors.red[200],
+        child: Text('Entrar com a convidat', style: TextStyle(color: Colors.black, fontSize: 16.0)),
       ),
     );
 
@@ -64,6 +93,7 @@ class _StartState extends State<Start> {
             logo,
             SizedBox(height: 24.0),
             loginButton,
+            loginAnonButton,
             registerButton
           ],
         ),

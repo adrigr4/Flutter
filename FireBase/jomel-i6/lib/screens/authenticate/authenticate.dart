@@ -22,7 +22,6 @@ class _AuthenticateState extends State<Authenticate> {
   @override
   Widget build(BuildContext context) {
     if(startPage){
-      return Start(toggleStart: toggleStart);
     }else{
     }
   }
