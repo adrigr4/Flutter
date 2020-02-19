@@ -31,7 +31,7 @@ class _StartState extends State<Start> {
     );
 
     final loginAnonButton = Padding(
-      padding: EdgeInsets.symmetric(vertical: 15.0),
+      padding: EdgeInsets.symmetric(vertical: 10.0),
       child: RaisedButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
@@ -54,7 +54,7 @@ class _StartState extends State<Start> {
     );
 
     final loginButton = Padding(
-      padding: EdgeInsets.symmetric(vertical: 15.0),
+      padding: EdgeInsets.symmetric(vertical: 10.0),
       child: RaisedButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
@@ -69,7 +69,7 @@ class _StartState extends State<Start> {
     );
 
     final registerButton = Padding(
-      padding: EdgeInsets.symmetric(vertical: 4.0),
+      padding: EdgeInsets.symmetric(vertical: 10.0),
       child: RaisedButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),

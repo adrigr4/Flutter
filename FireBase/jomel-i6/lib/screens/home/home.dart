@@ -1,8 +1,8 @@
-import 'dart:async';
-
 import 'package:JomelI6/models/user.dart';
 import 'package:JomelI6/models/userAuth.dart';
 import 'package:JomelI6/screens/authenticate/start.dart';
+import 'package:JomelI6/screens/home/users.dart';
+import 'package:JomelI6/shared/decorations.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:JomelI6/services/auth.dart';
@@ -26,30 +26,45 @@ class _HomeState extends State<Home> {
     String name = '';
     String uid = '';
 
-    final userAu = Provider.of<UserAuth>(context);
-    final user = Provider.of<List<User>>(context).last.name;
-    
+    //Obtenir uid usuari actual
+    //final userAu = Provider.of<UserAuth>(context).uid;
 
-    return StreamProvider<List<User>>.value(
-        value: DatabaseService().users,
-        child: Scaffold(
-          backgroundColor: Colors.red[300],
-          appBar: AppBar(
-            title: Text(user),
-            backgroundColor: Colors.red[400],
-            elevation: 0.0,
-            actions: <Widget>[
-              FlatButton.icon(
-                icon: Icon(Icons.person),
-                label: Text('Sortir'),
-                onPressed: () async {
-                  await _auth.signOut();
-                  Navigator.of(context).pushNamed(Start.tag);
-                },
-              )
-            ],
-          ),
-          //body: UserList(),
-        ));
+    final usersButton = RaisedButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(24),
+        ),
+        padding: EdgeInsets.all(15),
+        color: Colors.red,
+        child: Text('Users',
+            style: TextStyle(color: Colors.white, fontSize: 16.0)),
+        onPressed: () {
+          Navigator.of(context).pushNamed(Users.tag);
+        });
+
+    return Scaffold(
+      backgroundColor: Colors.red[300],
+      appBar: AppBar(
+        title: Text(
+          ("Jomel-i6"),
+          style: TextStyle(fontSize: 23.0, fontStyle: FontStyle.italic),
+        ),
+        backgroundColor: Colors.red,
+        elevation: 0.0,
+        actions: <Widget>[
+          FlatButton.icon(
+            icon: Text(''),
+            label: Text(
+              ('Sortir'),
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            onPressed: () async {
+              await _auth.signOut();
+              Navigator.of(context).pushNamed(Start.tag);
+            },
+          )
+        ],
+      ),
+      body: usersButton,
+    );
   }
 }
