@@ -1,5 +1,6 @@
 import 'package:JomelI6/models/user.dart';
 import 'package:JomelI6/models/userAuth.dart';
+import 'package:JomelI6/screens/authenticate/register.dart';
 import 'package:JomelI6/screens/authenticate/start.dart';
 import 'package:JomelI6/screens/home/user_list.dart';
 import 'package:JomelI6/shared/decorations.dart';
@@ -34,13 +35,19 @@ class _UsersState extends State<Users> {
         child: Scaffold(
           backgroundColor: Colors.red[300],
           appBar: AppBar(
-            title: Text(("Jomel-i6"), style: TextStyle(fontSize: 23.0, fontStyle: FontStyle.italic),),
+            title: Text(
+              ("Jomel-i6"),
+              style: TextStyle(fontSize: 23.0, fontStyle: FontStyle.italic),
+            ),
             backgroundColor: Colors.red,
             elevation: 0.0,
             actions: <Widget>[
               FlatButton.icon(
                 icon: Text(''),
-                label: Text(('Sortir'),style: TextStyle(fontWeight: FontWeight.bold),),
+                label: Text(
+                  ('Sortir'),
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 onPressed: () async {
                   await _auth.signOut();
                   Navigator.of(context).pushNamed(Start.tag);
@@ -49,6 +56,13 @@ class _UsersState extends State<Users> {
             ],
           ),
           body: UserList(),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(Register.tag);
+            },
+            child: Icon(Icons.add),
+            backgroundColor: Colors.black,
+          ),
         ));
   }
 }

@@ -1,4 +1,5 @@
 import 'package:JomelI6/screens/authenticate/sign_in.dart';
+import 'package:JomelI6/screens/authenticate/start.dart';
 import 'package:JomelI6/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:JomelI6/services/auth.dart';
@@ -33,7 +34,7 @@ class _RegisterState extends State<Register> {
       backgroundColor: Colors.red,
       elevation: 0.0,
       title: Text('Registre'),
-      actions: <Widget>[
+      /*actions: <Widget>[
         FlatButton.icon(
           icon: Icon(Icons.person),
           label: Text('Inicia sessió'),
@@ -41,7 +42,7 @@ class _RegisterState extends State<Register> {
             Navigator.of(context).pushNamed(SignIn.tag);
           },
         )
-      ],
+      ],*/
     );
 
     final nameTextForm = TextFormField(

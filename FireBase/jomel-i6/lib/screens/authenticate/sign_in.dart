@@ -28,7 +28,7 @@ class _SignInState extends State<SignIn> {
       backgroundColor: Colors.red,
       elevation: 0.0,
       title: Text('Iniciar sessió'),
-      actions: <Widget>[
+      /*actions: <Widget>[
         FlatButton.icon(
           icon: Icon(Icons.person),
           label: Text('Registrar-se'),
@@ -36,7 +36,7 @@ class _SignInState extends State<SignIn> {
             Navigator.of(context).pushNamed(Register.tag);
           },
         )
-      ],
+      ],*/
     );
 
     final emailTextForm = TextFormField(
