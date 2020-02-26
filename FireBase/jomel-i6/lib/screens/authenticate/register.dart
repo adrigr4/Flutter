@@ -1,5 +1,3 @@
-import 'package:JomelI6/screens/authenticate/sign_in.dart';
-import 'package:JomelI6/screens/authenticate/start.dart';
 import 'package:JomelI6/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:JomelI6/services/auth.dart';

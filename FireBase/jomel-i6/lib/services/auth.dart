@@ -1,6 +1,5 @@
 import 'package:JomelI6/models/userAuth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:JomelI6/models/user.dart';
 import 'package:JomelI6/services/database.dart';
 
 class AuthService {

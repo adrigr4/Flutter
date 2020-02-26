@@ -1,3 +1,4 @@
+import 'package:JomelI6/models/top.dart';
 import 'package:JomelI6/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -32,6 +33,23 @@ class DatabaseService {
     Stream<List<User>> get users {
       return userCollection.snapshots()
         .map(_userListFromSnapshot);
+    } 
+
+  final CollectionReference topsCollection = Firestore.instance.collection('tops');
+
+  List<Top> _topsListFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.documents.map((doc){
+      return Top(
+        name: doc.data['name'] ?? '',
+        order: doc.data['order'] ?? '',
+        );
+    }).toList();
+  }
+
+  // get users stream 
+    Stream<List<Top>> get tops {
+      return topsCollection.snapshots()
+        .map(_topsListFromSnapshot);
     } 
 
 }

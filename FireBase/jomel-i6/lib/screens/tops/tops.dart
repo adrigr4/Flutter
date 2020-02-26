@@ -1,20 +1,20 @@
-import 'package:JomelI6/models/user.dart';
+import 'package:JomelI6/models/top.dart';
 import 'package:JomelI6/screens/authenticate/register.dart';
 import 'package:JomelI6/screens/authenticate/start.dart';
-import 'package:JomelI6/screens/home/user_list.dart';
+import 'package:JomelI6/screens/tops/tops_list.dart';
 import 'package:flutter/material.dart';
 import 'package:JomelI6/services/auth.dart';
 import 'package:JomelI6/services/database.dart';
 import 'package:provider/provider.dart';
 
-class Users extends StatefulWidget {
-  static String tag = 'users';
+class Tops extends StatefulWidget {
+  static String tag = 'tops';
 
   @override
-  _UsersState createState() => _UsersState();
+  _TopsState createState() => _TopsState();
 }
 
-class _UsersState extends State<Users> {
+class _TopsState extends State<Tops> {
   final AuthService _auth = AuthService();
 
   @override
@@ -23,8 +23,8 @@ class _UsersState extends State<Users> {
     //Obtenir uid usuari actual
     //final userAu = Provider.of<UserAuth>(context).uid;
 
-    return StreamProvider<List<User>>.value(
-        value: DatabaseService().users,
+    return StreamProvider<List<Top>>.value(
+        value: DatabaseService().tops,
         child: Scaffold(
           backgroundColor: Colors.red[300],
           appBar: AppBar(
@@ -48,7 +48,7 @@ class _UsersState extends State<Users> {
               )
             ],
           ),
-          body: UserList(),
+          body: TopsList(),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               Navigator.of(context).pushNamed(Register.tag);

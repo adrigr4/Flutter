@@ -2,7 +2,6 @@ import 'package:JomelI6/models/user.dart';
 import 'package:JomelI6/screens/home/user_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserList extends StatefulWidget {
   @override
