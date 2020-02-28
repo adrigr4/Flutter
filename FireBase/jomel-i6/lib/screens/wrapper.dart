@@ -4,6 +4,8 @@ import 'package:JomelI6/screens/authenticate/authenticate.dart';
 import 'package:provider/provider.dart';
 import 'package:JomelI6/screens/home/home.dart';
 
+import 'authenticate/start.dart';
+
 class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class Wrapper extends StatelessWidget {
       
       //return either home or Authenticate widget
       if (user == null){
-        return Authenticate();
+        return Start();
       }else{
         return Home();
       }

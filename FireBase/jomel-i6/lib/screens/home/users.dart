@@ -1,6 +1,7 @@
 import 'package:JomelI6/models/user.dart';
 import 'package:JomelI6/screens/authenticate/register.dart';
 import 'package:JomelI6/screens/authenticate/start.dart';
+import 'package:JomelI6/screens/home/settings_form.dart';
 import 'package:JomelI6/screens/home/user_list.dart';
 import 'package:flutter/material.dart';
 import 'package:JomelI6/services/auth.dart';
@@ -23,13 +24,22 @@ class _UsersState extends State<Users> {
     //Obtenir uid usuari actual
     //final userAu = Provider.of<UserAuth>(context).uid;
 
+    void _showSettingsPanel(){
+      showModalBottomSheet(context: context, builder: (context){
+        return Container(
+          padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
+          child: SettingsForm(),
+        );
+      });
+    }
+
     return StreamProvider<List<User>>.value(
         value: DatabaseService().users,
         child: Scaffold(
           backgroundColor: Colors.red[300],
           appBar: AppBar(
             title: Text(
-              ("Jomel-i6"),
+              ("Users"),
               style: TextStyle(fontSize: 23.0, fontStyle: FontStyle.italic),
             ),
             backgroundColor: Colors.red,

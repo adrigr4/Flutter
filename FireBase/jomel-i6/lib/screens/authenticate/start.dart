@@ -6,8 +6,7 @@ import 'package:flutter/material.dart';
 
 class Start extends StatefulWidget {
 
-  static String tag = 'start';
-  
+  static String tag = 'start';  
 
   @override
   _StartState createState() => _StartState();
@@ -21,6 +20,7 @@ class _StartState extends State<Start> {
 
   @override
   Widget build(BuildContext context) {
+    
     final logo = Hero(
       tag: 'hero',
       child: CircleAvatar(

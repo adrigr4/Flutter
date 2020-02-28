@@ -6,6 +6,4 @@ class User {
   final String email;
 
   User ({ this.uid, this.name, this.surname, this.nickname, this.email});
-  
-
 }
