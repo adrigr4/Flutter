@@ -57,8 +57,6 @@ class DatabaseService {
     return userCollection.snapshots().map(_userListFromSnapshot);
   }
 
-
-
   //Tops
   final CollectionReference topsCollection = Firestore.instance.collection('tops');
 
@@ -67,8 +65,9 @@ class DatabaseService {
       return Top(
         name: doc.data['name'] ?? '',
         order: doc.data['order'] ?? '',
+        test: doc.data['test'] ?? '',
       );
-    }).toList();
+    }).toList();  
   }
 
   // get users stream

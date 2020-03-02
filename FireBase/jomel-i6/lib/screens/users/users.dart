@@ -24,15 +24,6 @@ class _UsersState extends State<Users> {
     //Obtenir uid usuari actual
     //final userAu = Provider.of<UserAuth>(context).uid;
 
-    void _showSettingsPanel(){
-      showModalBottomSheet(context: context, builder: (context){
-        return Container(
-          padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
-          child: SettingsForm(),
-        );
-      });
-    }
-
     return StreamProvider<List<User>>.value(
         value: DatabaseService().users,
         child: Scaffold(

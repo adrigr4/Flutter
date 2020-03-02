@@ -29,7 +29,7 @@ class _TopsState extends State<Tops> {
           backgroundColor: Colors.red[300],
           appBar: AppBar(
             title: Text(
-              ("Jomel-i6"),
+              ("Tops"),
               style: TextStyle(fontSize: 23.0, fontStyle: FontStyle.italic),
             ),
             backgroundColor: Colors.red,
