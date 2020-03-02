@@ -1,8 +1,8 @@
 import 'package:JomelI6/models/user.dart';
 import 'package:JomelI6/screens/authenticate/register.dart';
-import 'package:JomelI6/screens/authenticate/start.dart';
-import 'package:JomelI6/screens/home/settings_form.dart';
-import 'package:JomelI6/screens/home/user_list.dart';
+import 'package:JomelI6/screens/home/start.dart';
+import 'package:JomelI6/screens/users/settings_form.dart';
+import 'package:JomelI6/screens/users/user_list.dart';
 import 'package:flutter/material.dart';
 import 'package:JomelI6/services/auth.dart';
 import 'package:JomelI6/services/database.dart';

@@ -1,6 +1,6 @@
 import 'package:JomelI6/models/top.dart';
 import 'package:JomelI6/screens/authenticate/register.dart';
-import 'package:JomelI6/screens/authenticate/start.dart';
+import 'package:JomelI6/screens/home/start.dart';
 import 'package:JomelI6/screens/tops/tops_list.dart';
 import 'package:flutter/material.dart';
 import 'package:JomelI6/services/auth.dart';

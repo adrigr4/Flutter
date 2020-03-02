@@ -4,7 +4,7 @@ import 'package:JomelI6/screens/authenticate/authenticate.dart';
 import 'package:provider/provider.dart';
 import 'package:JomelI6/screens/home/home.dart';
 
-import 'authenticate/start.dart';
+import 'home/start.dart';
 
 class Wrapper extends StatelessWidget {
   @override

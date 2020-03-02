@@ -82,7 +82,6 @@ class _StartState extends State<Start> {
         child: Text('Registre', style: TextStyle(color: Colors.black, fontSize: 16.0)),
       ),
     );
-
     return Scaffold(
       backgroundColor: Colors.red,
       body: Center(

@@ -1,5 +1,5 @@
 import 'package:JomelI6/models/user.dart';
-import 'package:JomelI6/screens/home/user_tile.dart';
+import 'package:JomelI6/screens/users/user_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

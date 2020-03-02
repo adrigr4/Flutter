@@ -1,6 +1,7 @@
 import 'package:JomelI6/models/top.dart';
 import 'package:JomelI6/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class DatabaseService {
   final String uid;
@@ -18,6 +19,11 @@ class DatabaseService {
       'surname': nickname,
       'nickname': description,
     });
+  }
+
+  Future deleteUserData(
+      String uid) async {
+        return await userCollection.document(uid).delete();
   }
 
   List<User> _userListFromSnapshot(QuerySnapshot snapshot) {
@@ -51,6 +57,9 @@ class DatabaseService {
     return userCollection.snapshots().map(_userListFromSnapshot);
   }
 
+
+
+  //Tops
   final CollectionReference topsCollection = Firestore.instance.collection('tops');
 
   List<Top> _topsListFromSnapshot(QuerySnapshot snapshot) {

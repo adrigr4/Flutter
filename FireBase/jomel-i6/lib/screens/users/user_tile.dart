@@ -1,6 +1,7 @@
 
 import 'package:JomelI6/models/user.dart';
-import 'package:JomelI6/screens/home/settings_form.dart';
+import 'package:JomelI6/screens/users/delete_form.dart';
+import 'package:JomelI6/screens/users/settings_form.dart';
 import 'package:flutter/material.dart';
 
 class UserTile extends StatelessWidget {
@@ -19,6 +20,15 @@ class UserTile extends StatelessWidget {
       });
     }
 
+    void _showDeletePanel(String uid){
+      showModalBottomSheet(context: context, elevation: 20.0, builder: (context){
+        return Container(
+          padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
+          child: DeleteForm(userUid: uid),
+        );
+      });
+    }
+
     return Padding(
       padding: EdgeInsets.only(top: 8.0),
       child: Card(
@@ -30,13 +40,13 @@ class UserTile extends StatelessWidget {
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-            new IconButton(
+            new IconButton( 
               icon: Icon(Icons.more_vert), 
               onPressed: () => _showSettingsPanel(user.uid),
             ),
             new IconButton(
               icon: Icon(Icons.delete), 
-              onPressed: () => _showSettingsPanel(user.uid),
+              onPressed: () => _showDeletePanel(user.uid),
             ),
             ]
           ),

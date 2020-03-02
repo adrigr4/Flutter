@@ -1,6 +1,6 @@
 import 'package:JomelI6/models/user.dart';
 import 'package:JomelI6/models/userAuth.dart';
-import 'package:JomelI6/screens/home/users.dart';
+import 'package:JomelI6/screens/users/users.dart';
 import 'package:JomelI6/services/database.dart';
 import 'package:JomelI6/shared/decorations.dart';
 import 'package:JomelI6/shared/loading.dart';
