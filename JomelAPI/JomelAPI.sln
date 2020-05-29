@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JomelAPI", "JomelAPI\JomelAPI.csproj", "{C64A78EF-1A8B-4A2E-BCB3-A428D849E10E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C64A78EF-1A8B-4A2E-BCB3-A428D849E10E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C64A78EF-1A8B-4A2E-BCB3-A428D849E10E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C64A78EF-1A8B-4A2E-BCB3-A428D849E10E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C64A78EF-1A8B-4A2E-BCB3-A428D849E10E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B72FBEA4-A10E-4D21-8425-7B4C977C4D05}
+	EndGlobalSection
+EndGlobal
