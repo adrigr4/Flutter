@@ -7,55 +7,53 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using JomelAPI.Data;
 using JomelAPI.Models;
-using JomelAPI.ModelsDto;
-using JomelAPI.MemberExtensions;
 
 namespace JomelAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MembersController : ControllerBase
+    public class EventsController : ControllerBase
     {
         private readonly JomelAPIContext _context;
 
-        public MembersController(JomelAPIContext context)
+        public EventsController(JomelAPIContext context)
         {
             _context = context;
         }
 
-        // GET: api/Members
+        // GET: api/Events
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Member>>> GetMember()
+        public async Task<ActionResult<IEnumerable<Event>>> GetEvents()
         {
-            return await _context.Members.ToListAsync();
+            return await _context.Events.ToListAsync();
         }
 
-        // GET: api/Members/5
+        // GET: api/Events/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Member>> GetMember(int id)
+        public async Task<ActionResult<Event>> GetEvent(int id)
         {
-            var member = await _context.Members.FindAsync(id);
+            var @event = await _context.Events.FindAsync(id);
 
-            if (member == null)
+            if (@event == null)
             {
                 return NotFound();
             }
 
-            return member;
+            return @event;
         }
 
-        // PUT: api/Members/5
+        // PUT: api/Events/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMember(int id, Member member)
+        public async Task<IActionResult> PutEvent(int id, Event @event)
         {
-            if (id != member.Id)
+            if (id != @event.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(member).State = EntityState.Modified;
+            _context.Entry(@event).State = EntityState.Modified;
 
             try
             {
@@ -63,7 +61,7 @@ namespace JomelAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MemberExists(id))
+                if (!EventExists(id))
                 {
                     return NotFound();
                 }
@@ -76,47 +74,37 @@ namespace JomelAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Members
+        // POST: api/Events
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<NewMemberDto>> PostMember(NewMemberDto memberDto)
+        public async Task<ActionResult<Event>> PostEvent(Event @event)
         {
-            Member member = new Member();
-            member.Name = memberDto.Name;
-            member.Email = memberDto.Email;
-            member.Password = memberDto.Password;
-
-            foreach (Top top in _context.Tops)
-            {
-                top.Members.Add(member);
-            }
-
-            _context.Members.Add(member);
+            _context.Events.Add(@event);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetMember", new { id = member.Id }, member);
+            return CreatedAtAction("GetEvent", new { id = @event.Id }, @event);
         }
 
-        // DELETE: api/Members/5
+        // DELETE: api/Events/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Member>> DeleteMember(int id)
+        public async Task<ActionResult<Event>> DeleteEvent(int id)
         {
-            var member = await _context.Members.FindAsync(id);
-            if (member == null)
+            var @event = await _context.Events.FindAsync(id);
+            if (@event == null)
             {
                 return NotFound();
             }
 
-            _context.Members.Remove(member);
+            _context.Events.Remove(@event);
             await _context.SaveChangesAsync();
 
-            return member;
+            return @event;
         }
 
-        private bool MemberExists(int id)
+        private bool EventExists(int id)
         {
-            return _context.Members.Any(e => e.Id == id);
+            return _context.Events.Any(e => e.Id == id);
         }
     }
 }

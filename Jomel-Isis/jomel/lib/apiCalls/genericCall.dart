@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:jomel/apiCalls/exceptions.dart';
 import 'dart:async';
 
-  const _baseUrl = 'https://localhost:44392/api/';
+  const _baseUrl = 'https://192.168.1.32:44358/api/';
 
   Map<String,String> headers = {
   'Content-type' : 'application/json', 
@@ -27,7 +27,9 @@ Future<dynamic> get(String url) async {
 Future<dynamic> post(String url, Map<String, String> body) async {
     var responseJson;
     try {
+      print(json.encode(body));
       final response = await http.post(_baseUrl + url, headers: headers, body: json.encode(body));
+      print(response);
       responseJson = _returnResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet connection');
